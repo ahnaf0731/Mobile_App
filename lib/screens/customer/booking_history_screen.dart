@@ -5,7 +5,8 @@ class BookingHistoryScreen extends ConsumerStatefulWidget {
   const BookingHistoryScreen({super.key});
 
   @override
-  ConsumerState<BookingHistoryScreen> createState() => _BookingHistoryScreenState();
+  ConsumerState<BookingHistoryScreen> createState() =>
+      _BookingHistoryScreenState();
 }
 
 class _BookingHistoryScreenState extends ConsumerState<BookingHistoryScreen> {
@@ -86,7 +87,7 @@ class _BookingHistoryScreenState extends ConsumerState<BookingHistoryScreen> {
               itemBuilder: (context, index) {
                 final booking = bookings[index];
                 final status = booking['status'] as String;
-                
+
                 Color statusColor;
                 switch (status) {
                   case 'Completed':

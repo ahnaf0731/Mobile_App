@@ -124,9 +124,9 @@ class _ReviewScreenState extends ConsumerState<ReviewScreen> {
               Text(
                 'Rate Your Experience',
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  color: Theme.of(context).primaryColor,
-                  fontWeight: FontWeight.bold,
-                ),
+                      color: Theme.of(context).primaryColor,
+                      fontWeight: FontWeight.bold,
+                    ),
               ),
               const SizedBox(height: 16),
               Row(
@@ -167,9 +167,9 @@ class _ReviewScreenState extends ConsumerState<ReviewScreen> {
               Text(
                 'Share Your Feedback',
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  color: Theme.of(context).primaryColor,
-                  fontWeight: FontWeight.bold,
-                ),
+                      color: Theme.of(context).primaryColor,
+                      fontWeight: FontWeight.bold,
+                    ),
               ),
               const SizedBox(height: 16),
               TextFormField(
@@ -215,7 +215,9 @@ class _ReviewScreenState extends ConsumerState<ReviewScreen> {
                   borderRadius: BorderRadius.circular(12),
                   boxShadow: [
                     BoxShadow(
-                      color: Theme.of(context).colorScheme.secondary
+                      color: Theme.of(context)
+                          .colorScheme
+                          .secondary
                           .withOpacity(0.4),
                       blurRadius: 8,
                       offset: const Offset(0, 4),

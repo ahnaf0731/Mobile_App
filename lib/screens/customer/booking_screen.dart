@@ -101,20 +101,21 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
   }
 
   Future<void> _createBooking() async {
-    if (_formKey.currentState!.validate() && 
-        _selectedService != null && 
-        _selectedDate != null && 
+    if (_formKey.currentState!.validate() &&
+        _selectedService != null &&
+        _selectedDate != null &&
         _selectedTimeSlot != null &&
         _selectedProviderId != null) {
-      
       // Show success dialog
-      final selectedProvider = _providers.firstWhere((p) => p['id'] == _selectedProviderId);
-      
+      final selectedProvider =
+          _providers.firstWhere((p) => p['id'] == _selectedProviderId);
+
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
           title: const Text('Booking Confirmed'),
-          content: Text('Your booking with ${selectedProvider['name']} has been created successfully!'),
+          content: Text(
+              'Your booking with ${selectedProvider['name']} has been created successfully!'),
           actions: [
             TextButton(
               onPressed: () {
@@ -129,7 +130,8 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Please fill all required fields and select a provider'),
+          content:
+              Text('Please fill all required fields and select a provider'),
         ),
       );
     }
@@ -224,9 +226,9 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
               Text(
                 'Select Service Provider',
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  color: Theme.of(context).primaryColor,
-                  fontWeight: FontWeight.bold,
-                ),
+                      color: Theme.of(context).primaryColor,
+                      fontWeight: FontWeight.bold,
+                    ),
               ),
               const SizedBox(height: 16),
               // Provider Selection Grid
@@ -243,7 +245,7 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
                 itemBuilder: (context, index) {
                   final provider = _providers[index];
                   final isSelected = _selectedProviderId == provider['id'];
-                  
+
                   return GestureDetector(
                     onTap: () {
                       setState(() => _selectedProviderId = provider['id']);
@@ -258,7 +260,10 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
                           width: isSelected ? 3 : 1,
                         ),
                         color: isSelected
-                            ? Theme.of(context).colorScheme.secondary.withOpacity(0.05)
+                            ? Theme.of(context)
+                                .colorScheme
+                                .secondary
+                                .withOpacity(0.05)
                             : Colors.white,
                         boxShadow: [
                           BoxShadow(
@@ -326,7 +331,8 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
                                 padding: const EdgeInsets.only(top: 6.0),
                                 child: Icon(
                                   Icons.check_circle,
-                                  color: Theme.of(context).colorScheme.secondary,
+                                  color:
+                                      Theme.of(context).colorScheme.secondary,
                                   size: 20,
                                 ),
                               ),
@@ -343,7 +349,8 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 16),
                 ),
-                child: const Text('Confirm Booking', style: TextStyle(fontSize: 16)),
+                child: const Text('Confirm Booking',
+                    style: TextStyle(fontSize: 16)),
               ),
             ],
           ),
